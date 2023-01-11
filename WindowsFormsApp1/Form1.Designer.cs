@@ -54,21 +54,32 @@ namespace WindowsFormsApp1
       this.label1 = new System.Windows.Forms.Label();
       this.textBox_port = new System.Windows.Forms.TextBox();
       this.dataGridView1 = new System.Windows.Forms.DataGridView();
-      this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.RegisterAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.RegisterValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.panel4 = new System.Windows.Forms.Panel();
       this.button_status = new System.Windows.Forms.Button();
       this.label9 = new System.Windows.Forms.Label();
       this.timer1 = new System.Windows.Forms.Timer(this.components);
       this.label11 = new System.Windows.Forms.Label();
       this.timer_update_database = new System.Windows.Forms.Timer(this.components);
+      this.panel5 = new System.Windows.Forms.Panel();
+      this.textBox_broker = new System.Windows.Forms.TextBox();
+      this.button1 = new System.Windows.Forms.Button();
+      this.label10 = new System.Windows.Forms.Label();
+      this.label12 = new System.Windows.Forms.Label();
+      this.textBox_port_broker = new System.Windows.Forms.TextBox();
+      this.panel6 = new System.Windows.Forms.Panel();
+      this.label_status_mqtt = new System.Windows.Forms.Label();
+      this.textBox_test = new System.Windows.Forms.TextBox();
+      this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.label13 = new System.Windows.Forms.Label();
       this.panel3.SuspendLayout();
       this.panel2.SuspendLayout();
       this.panel1.SuspendLayout();
       this.flowLayoutPanel1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
       this.panel4.SuspendLayout();
+      this.panel5.SuspendLayout();
+      this.panel6.SuspendLayout();
       this.SuspendLayout();
       // 
       // panel3
@@ -79,7 +90,7 @@ namespace WindowsFormsApp1
       this.panel3.Controls.Add(this.label7);
       this.panel3.Controls.Add(this.comboBox_read);
       this.panel3.Controls.Add(this.label8);
-      this.panel3.Location = new System.Drawing.Point(12, 349);
+      this.panel3.Location = new System.Drawing.Point(12, 501);
       this.panel3.Name = "panel3";
       this.panel3.Size = new System.Drawing.Size(369, 159);
       this.panel3.TabIndex = 19;
@@ -156,7 +167,7 @@ namespace WindowsFormsApp1
       this.panel2.Controls.Add(this.comboBox_write);
       this.panel2.Controls.Add(this.label3);
       this.panel2.Controls.Add(this.button_write);
-      this.panel2.Location = new System.Drawing.Point(12, 97);
+      this.panel2.Location = new System.Drawing.Point(12, 184);
       this.panel2.Name = "panel2";
       this.panel2.Size = new System.Drawing.Size(369, 246);
       this.panel2.TabIndex = 18;
@@ -241,7 +252,7 @@ namespace WindowsFormsApp1
       this.panel1.Controls.Add(this.flowLayoutPanel1);
       this.panel1.Controls.Add(this.label1);
       this.panel1.Controls.Add(this.textBox_port);
-      this.panel1.Location = new System.Drawing.Point(12, 12);
+      this.panel1.Location = new System.Drawing.Point(12, 42);
       this.panel1.Name = "panel1";
       this.panel1.Size = new System.Drawing.Size(880, 59);
       this.panel1.TabIndex = 17;
@@ -345,42 +356,22 @@ namespace WindowsFormsApp1
       this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
       this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
       this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.RegisterAddress,
-            this.RegisterValue});
-      this.dataGridView1.Location = new System.Drawing.Point(406, 97);
+            this.address,
+            this.value});
+      this.dataGridView1.Location = new System.Drawing.Point(406, 275);
       this.dataGridView1.Name = "dataGridView1";
       this.dataGridView1.RowHeadersWidth = 70;
       this.dataGridView1.RowTemplate.Height = 24;
       this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-      this.dataGridView1.Size = new System.Drawing.Size(682, 372);
+      this.dataGridView1.Size = new System.Drawing.Size(671, 356);
       this.dataGridView1.TabIndex = 20;
-      // 
-      // Id
-      // 
-      this.Id.HeaderText = "Id";
-      this.Id.MinimumWidth = 6;
-      this.Id.Name = "Id";
-      this.Id.Visible = false;
-      // 
-      // RegisterAddress
-      // 
-      this.RegisterAddress.HeaderText = "RegisterAddress";
-      this.RegisterAddress.MinimumWidth = 6;
-      this.RegisterAddress.Name = "RegisterAddress";
-      // 
-      // RegisterValue
-      // 
-      this.RegisterValue.HeaderText = "RegisterValue";
-      this.RegisterValue.MinimumWidth = 6;
-      this.RegisterValue.Name = "RegisterValue";
       // 
       // panel4
       // 
       this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
       this.panel4.Controls.Add(this.button_status);
       this.panel4.Controls.Add(this.label9);
-      this.panel4.Location = new System.Drawing.Point(898, 12);
+      this.panel4.Location = new System.Drawing.Point(898, 42);
       this.panel4.Name = "panel4";
       this.panel4.Size = new System.Drawing.Size(186, 59);
       this.panel4.TabIndex = 21;
@@ -415,22 +406,141 @@ namespace WindowsFormsApp1
       // 
       this.label11.AutoSize = true;
       this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label11.Location = new System.Drawing.Point(696, 479);
+      this.label11.Location = new System.Drawing.Point(702, 634);
       this.label11.Name = "label11";
-      this.label11.Size = new System.Drawing.Size(123, 29);
+      this.label11.Size = new System.Drawing.Size(66, 29);
       this.label11.TabIndex = 23;
-      this.label11.Text = "Database";
+      this.label11.Text = "Data";
       // 
       // timer_update_database
       // 
       this.timer_update_database.Interval = 5000;
       this.timer_update_database.Tick += new System.EventHandler(this.timer_update_database_Tick);
       // 
+      // panel5
+      // 
+      this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+      this.panel5.Controls.Add(this.textBox_broker);
+      this.panel5.Controls.Add(this.button1);
+      this.panel5.Controls.Add(this.label10);
+      this.panel5.Controls.Add(this.label12);
+      this.panel5.Controls.Add(this.textBox_port_broker);
+      this.panel5.Location = new System.Drawing.Point(12, 117);
+      this.panel5.Name = "panel5";
+      this.panel5.Size = new System.Drawing.Size(880, 59);
+      this.panel5.TabIndex = 18;
+      // 
+      // textBox_broker
+      // 
+      this.textBox_broker.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBox_broker.Location = new System.Drawing.Point(200, 10);
+      this.textBox_broker.Name = "textBox_broker";
+      this.textBox_broker.Size = new System.Drawing.Size(247, 34);
+      this.textBox_broker.TabIndex = 12;
+      this.textBox_broker.Text = "ismaillowkey.my.id";
+      this.textBox_broker.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+      // 
+      // button1
+      // 
+      this.button1.BackColor = System.Drawing.Color.SpringGreen;
+      this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.button1.Location = new System.Drawing.Point(716, 10);
+      this.button1.Name = "button1";
+      this.button1.Size = new System.Drawing.Size(140, 41);
+      this.button1.TabIndex = 11;
+      this.button1.Text = "Connect";
+      this.button1.UseVisualStyleBackColor = false;
+      this.button1.Click += new System.EventHandler(this.button1_Click);
+      // 
+      // label10
+      // 
+      this.label10.AutoSize = true;
+      this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.label10.Location = new System.Drawing.Point(553, 14);
+      this.label10.Name = "label10";
+      this.label10.Size = new System.Drawing.Size(68, 29);
+      this.label10.TabIndex = 8;
+      this.label10.Text = "Port:";
+      // 
+      // label12
+      // 
+      this.label12.AutoSize = true;
+      this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.label12.Location = new System.Drawing.Point(14, 13);
+      this.label12.Name = "label12";
+      this.label12.Size = new System.Drawing.Size(180, 29);
+      this.label12.TabIndex = 5;
+      this.label12.Text = "MQTT Broker:";
+      // 
+      // textBox_port_broker
+      // 
+      this.textBox_port_broker.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBox_port_broker.Location = new System.Drawing.Point(627, 13);
+      this.textBox_port_broker.Name = "textBox_port_broker";
+      this.textBox_port_broker.Size = new System.Drawing.Size(83, 34);
+      this.textBox_port_broker.TabIndex = 10;
+      this.textBox_port_broker.Text = "1883";
+      this.textBox_port_broker.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+      // 
+      // panel6
+      // 
+      this.panel6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+      this.panel6.Controls.Add(this.label_status_mqtt);
+      this.panel6.Location = new System.Drawing.Point(898, 117);
+      this.panel6.Name = "panel6";
+      this.panel6.Size = new System.Drawing.Size(186, 59);
+      this.panel6.TabIndex = 22;
+      // 
+      // label_status_mqtt
+      // 
+      this.label_status_mqtt.AutoSize = true;
+      this.label_status_mqtt.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.label_status_mqtt.Location = new System.Drawing.Point(6, 16);
+      this.label_status_mqtt.Name = "label_status_mqtt";
+      this.label_status_mqtt.Size = new System.Drawing.Size(85, 29);
+      this.label_status_mqtt.TabIndex = 12;
+      this.label_status_mqtt.Text = "Status";
+      // 
+      // textBox_test
+      // 
+      this.textBox_test.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBox_test.Location = new System.Drawing.Point(406, 225);
+      this.textBox_test.Name = "textBox_test";
+      this.textBox_test.Size = new System.Drawing.Size(671, 34);
+      this.textBox_test.TabIndex = 13;
+      this.textBox_test.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+      // 
+      // address
+      // 
+      this.address.HeaderText = "Address";
+      this.address.MinimumWidth = 6;
+      this.address.Name = "address";
+      // 
+      // value
+      // 
+      this.value.HeaderText = "value";
+      this.value.MinimumWidth = 6;
+      this.value.Name = "value";
+      // 
+      // label13
+      // 
+      this.label13.AutoSize = true;
+      this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.label13.Location = new System.Drawing.Point(401, 193);
+      this.label13.Name = "label13";
+      this.label13.Size = new System.Drawing.Size(170, 29);
+      this.label13.TabIndex = 24;
+      this.label13.Text = "Data Random";
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(1100, 521);
+      this.ClientSize = new System.Drawing.Size(1100, 683);
+      this.Controls.Add(this.label13);
+      this.Controls.Add(this.textBox_test);
+      this.Controls.Add(this.panel6);
+      this.Controls.Add(this.panel5);
       this.Controls.Add(this.label11);
       this.Controls.Add(this.panel4);
       this.Controls.Add(this.dataGridView1);
@@ -440,7 +550,6 @@ namespace WindowsFormsApp1
       this.Margin = new System.Windows.Forms.Padding(4);
       this.Name = "Form1";
       this.Text = "Connected PLC";
-      this.Load += new System.EventHandler(this.Form1_Load);
       this.panel3.ResumeLayout(false);
       this.panel3.PerformLayout();
       this.panel2.ResumeLayout(false);
@@ -452,6 +561,10 @@ namespace WindowsFormsApp1
       ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
       this.panel4.ResumeLayout(false);
       this.panel4.PerformLayout();
+      this.panel5.ResumeLayout(false);
+      this.panel5.PerformLayout();
+      this.panel6.ResumeLayout(false);
+      this.panel6.PerformLayout();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -489,9 +602,18 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Timer timer1;
     private System.Windows.Forms.Label label11;
     private System.Windows.Forms.Timer timer_update_database;
-    private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-    private System.Windows.Forms.DataGridViewTextBoxColumn RegisterAddress;
-    private System.Windows.Forms.DataGridViewTextBoxColumn RegisterValue;
+    private System.Windows.Forms.Panel panel5;
+    private System.Windows.Forms.TextBox textBox_broker;
+    private System.Windows.Forms.Button button1;
+    private System.Windows.Forms.Label label10;
+    private System.Windows.Forms.Label label12;
+    private System.Windows.Forms.TextBox textBox_port_broker;
+    private System.Windows.Forms.Panel panel6;
+    private System.Windows.Forms.Label label_status_mqtt;
+    private System.Windows.Forms.TextBox textBox_test;
+    private System.Windows.Forms.DataGridViewTextBoxColumn address;
+    private System.Windows.Forms.DataGridViewTextBoxColumn value;
+    private System.Windows.Forms.Label label13;
   }
 }
 
