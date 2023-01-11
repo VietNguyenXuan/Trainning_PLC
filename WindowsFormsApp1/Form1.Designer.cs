@@ -58,11 +58,10 @@ namespace WindowsFormsApp1
       this.button_status = new System.Windows.Forms.Button();
       this.label9 = new System.Windows.Forms.Label();
       this.timer1 = new System.Windows.Forms.Timer(this.components);
-      this.label11 = new System.Windows.Forms.Label();
       this.timer_update_database = new System.Windows.Forms.Timer(this.components);
       this.panel5 = new System.Windows.Forms.Panel();
       this.textBox_broker = new System.Windows.Forms.TextBox();
-      this.button1 = new System.Windows.Forms.Button();
+      this.button_connect_broker = new System.Windows.Forms.Button();
       this.label10 = new System.Windows.Forms.Label();
       this.label12 = new System.Windows.Forms.Label();
       this.textBox_port_broker = new System.Windows.Forms.TextBox();
@@ -90,7 +89,7 @@ namespace WindowsFormsApp1
       this.panel3.Controls.Add(this.label7);
       this.panel3.Controls.Add(this.comboBox_read);
       this.panel3.Controls.Add(this.label8);
-      this.panel3.Location = new System.Drawing.Point(12, 501);
+      this.panel3.Location = new System.Drawing.Point(12, 534);
       this.panel3.Name = "panel3";
       this.panel3.Size = new System.Drawing.Size(369, 159);
       this.panel3.TabIndex = 19;
@@ -167,7 +166,7 @@ namespace WindowsFormsApp1
       this.panel2.Controls.Add(this.comboBox_write);
       this.panel2.Controls.Add(this.label3);
       this.panel2.Controls.Add(this.button_write);
-      this.panel2.Location = new System.Drawing.Point(12, 184);
+      this.panel2.Location = new System.Drawing.Point(12, 282);
       this.panel2.Name = "panel2";
       this.panel2.Size = new System.Drawing.Size(369, 246);
       this.panel2.TabIndex = 18;
@@ -242,7 +241,6 @@ namespace WindowsFormsApp1
       this.button_write.TabIndex = 12;
       this.button_write.Text = "Write PLC";
       this.button_write.UseVisualStyleBackColor = false;
-      this.button_write.Click += new System.EventHandler(this.button_write_Click_1);
       // 
       // panel1
       // 
@@ -252,16 +250,16 @@ namespace WindowsFormsApp1
       this.panel1.Controls.Add(this.flowLayoutPanel1);
       this.panel1.Controls.Add(this.label1);
       this.panel1.Controls.Add(this.textBox_port);
-      this.panel1.Location = new System.Drawing.Point(12, 42);
+      this.panel1.Location = new System.Drawing.Point(12, 82);
       this.panel1.Name = "panel1";
-      this.panel1.Size = new System.Drawing.Size(880, 59);
+      this.panel1.Size = new System.Drawing.Size(796, 59);
       this.panel1.TabIndex = 17;
       // 
       // button_connect
       // 
       this.button_connect.BackColor = System.Drawing.Color.SpringGreen;
       this.button_connect.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.button_connect.Location = new System.Drawing.Point(716, 10);
+      this.button_connect.Location = new System.Drawing.Point(640, 10);
       this.button_connect.Name = "button_connect";
       this.button_connect.Size = new System.Drawing.Size(140, 41);
       this.button_connect.TabIndex = 11;
@@ -273,7 +271,7 @@ namespace WindowsFormsApp1
       // 
       this.label2.AutoSize = true;
       this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label2.Location = new System.Drawing.Point(553, 14);
+      this.label2.Location = new System.Drawing.Point(477, 14);
       this.label2.Name = "label2";
       this.label2.Size = new System.Drawing.Size(68, 29);
       this.label2.TabIndex = 8;
@@ -343,7 +341,7 @@ namespace WindowsFormsApp1
       // textBox_port
       // 
       this.textBox_port.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBox_port.Location = new System.Drawing.Point(627, 13);
+      this.textBox_port.Location = new System.Drawing.Point(551, 13);
       this.textBox_port.Name = "textBox_port";
       this.textBox_port.Size = new System.Drawing.Size(83, 34);
       this.textBox_port.TabIndex = 10;
@@ -358,7 +356,7 @@ namespace WindowsFormsApp1
       this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.address,
             this.value});
-      this.dataGridView1.Location = new System.Drawing.Point(406, 275);
+      this.dataGridView1.Location = new System.Drawing.Point(405, 336);
       this.dataGridView1.Name = "dataGridView1";
       this.dataGridView1.RowHeadersWidth = 70;
       this.dataGridView1.RowTemplate.Height = 24;
@@ -371,16 +369,16 @@ namespace WindowsFormsApp1
       this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
       this.panel4.Controls.Add(this.button_status);
       this.panel4.Controls.Add(this.label9);
-      this.panel4.Location = new System.Drawing.Point(898, 42);
+      this.panel4.Location = new System.Drawing.Point(823, 82);
       this.panel4.Name = "panel4";
-      this.panel4.Size = new System.Drawing.Size(186, 59);
+      this.panel4.Size = new System.Drawing.Size(261, 59);
       this.panel4.TabIndex = 21;
       // 
       // button_status
       // 
       this.button_status.BackColor = System.Drawing.Color.Red;
       this.button_status.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.button_status.Location = new System.Drawing.Point(107, 17);
+      this.button_status.Location = new System.Drawing.Point(227, 16);
       this.button_status.Name = "button_status";
       this.button_status.Size = new System.Drawing.Size(27, 28);
       this.button_status.TabIndex = 12;
@@ -393,24 +391,14 @@ namespace WindowsFormsApp1
       this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.label9.Location = new System.Drawing.Point(6, 16);
       this.label9.Name = "label9";
-      this.label9.Size = new System.Drawing.Size(92, 29);
+      this.label9.Size = new System.Drawing.Size(85, 29);
       this.label9.TabIndex = 12;
-      this.label9.Text = "Status:";
+      this.label9.Text = "Status";
       // 
       // timer1
       // 
       this.timer1.Interval = 500;
       this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-      // 
-      // label11
-      // 
-      this.label11.AutoSize = true;
-      this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label11.Location = new System.Drawing.Point(702, 634);
-      this.label11.Name = "label11";
-      this.label11.Size = new System.Drawing.Size(66, 29);
-      this.label11.TabIndex = 23;
-      this.label11.Text = "Data";
       // 
       // timer_update_database
       // 
@@ -421,13 +409,13 @@ namespace WindowsFormsApp1
       // 
       this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaption;
       this.panel5.Controls.Add(this.textBox_broker);
-      this.panel5.Controls.Add(this.button1);
+      this.panel5.Controls.Add(this.button_connect_broker);
       this.panel5.Controls.Add(this.label10);
       this.panel5.Controls.Add(this.label12);
       this.panel5.Controls.Add(this.textBox_port_broker);
-      this.panel5.Location = new System.Drawing.Point(12, 117);
+      this.panel5.Location = new System.Drawing.Point(12, 162);
       this.panel5.Name = "panel5";
-      this.panel5.Size = new System.Drawing.Size(880, 59);
+      this.panel5.Size = new System.Drawing.Size(796, 59);
       this.panel5.TabIndex = 18;
       // 
       // textBox_broker
@@ -440,23 +428,23 @@ namespace WindowsFormsApp1
       this.textBox_broker.Text = "ismaillowkey.my.id";
       this.textBox_broker.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
       // 
-      // button1
+      // button_connect_broker
       // 
-      this.button1.BackColor = System.Drawing.Color.SpringGreen;
-      this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.button1.Location = new System.Drawing.Point(716, 10);
-      this.button1.Name = "button1";
-      this.button1.Size = new System.Drawing.Size(140, 41);
-      this.button1.TabIndex = 11;
-      this.button1.Text = "Connect";
-      this.button1.UseVisualStyleBackColor = false;
-      this.button1.Click += new System.EventHandler(this.button1_Click);
+      this.button_connect_broker.BackColor = System.Drawing.Color.DodgerBlue;
+      this.button_connect_broker.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.button_connect_broker.Location = new System.Drawing.Point(640, 10);
+      this.button_connect_broker.Name = "button_connect_broker";
+      this.button_connect_broker.Size = new System.Drawing.Size(140, 41);
+      this.button_connect_broker.TabIndex = 11;
+      this.button_connect_broker.Text = "Connect";
+      this.button_connect_broker.UseVisualStyleBackColor = false;
+      this.button_connect_broker.Click += new System.EventHandler(this.button1_Click);
       // 
       // label10
       // 
       this.label10.AutoSize = true;
       this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label10.Location = new System.Drawing.Point(553, 14);
+      this.label10.Location = new System.Drawing.Point(477, 14);
       this.label10.Name = "label10";
       this.label10.Size = new System.Drawing.Size(68, 29);
       this.label10.TabIndex = 8;
@@ -475,7 +463,7 @@ namespace WindowsFormsApp1
       // textBox_port_broker
       // 
       this.textBox_port_broker.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBox_port_broker.Location = new System.Drawing.Point(627, 13);
+      this.textBox_port_broker.Location = new System.Drawing.Point(551, 13);
       this.textBox_port_broker.Name = "textBox_port_broker";
       this.textBox_port_broker.Size = new System.Drawing.Size(83, 34);
       this.textBox_port_broker.TabIndex = 10;
@@ -486,15 +474,16 @@ namespace WindowsFormsApp1
       // 
       this.panel6.BackColor = System.Drawing.SystemColors.ActiveCaption;
       this.panel6.Controls.Add(this.label_status_mqtt);
-      this.panel6.Location = new System.Drawing.Point(898, 117);
+      this.panel6.Location = new System.Drawing.Point(823, 162);
       this.panel6.Name = "panel6";
-      this.panel6.Size = new System.Drawing.Size(186, 59);
+      this.panel6.Size = new System.Drawing.Size(261, 59);
       this.panel6.TabIndex = 22;
       // 
       // label_status_mqtt
       // 
       this.label_status_mqtt.AutoSize = true;
       this.label_status_mqtt.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.label_status_mqtt.ForeColor = System.Drawing.Color.Crimson;
       this.label_status_mqtt.Location = new System.Drawing.Point(6, 16);
       this.label_status_mqtt.Name = "label_status_mqtt";
       this.label_status_mqtt.Size = new System.Drawing.Size(85, 29);
@@ -504,9 +493,9 @@ namespace WindowsFormsApp1
       // textBox_test
       // 
       this.textBox_test.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBox_test.Location = new System.Drawing.Point(406, 225);
+      this.textBox_test.Location = new System.Drawing.Point(576, 282);
       this.textBox_test.Name = "textBox_test";
-      this.textBox_test.Size = new System.Drawing.Size(671, 34);
+      this.textBox_test.Size = new System.Drawing.Size(500, 34);
       this.textBox_test.TabIndex = 13;
       this.textBox_test.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
       // 
@@ -526,7 +515,7 @@ namespace WindowsFormsApp1
       // 
       this.label13.AutoSize = true;
       this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label13.Location = new System.Drawing.Point(401, 193);
+      this.label13.Location = new System.Drawing.Point(400, 282);
       this.label13.Name = "label13";
       this.label13.Size = new System.Drawing.Size(170, 29);
       this.label13.TabIndex = 24;
@@ -536,12 +525,11 @@ namespace WindowsFormsApp1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(1100, 683);
+      this.ClientSize = new System.Drawing.Size(1100, 711);
       this.Controls.Add(this.label13);
       this.Controls.Add(this.textBox_test);
       this.Controls.Add(this.panel6);
       this.Controls.Add(this.panel5);
-      this.Controls.Add(this.label11);
       this.Controls.Add(this.panel4);
       this.Controls.Add(this.dataGridView1);
       this.Controls.Add(this.panel3);
@@ -600,11 +588,10 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button button_status;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Timer timer1;
-    private System.Windows.Forms.Label label11;
     private System.Windows.Forms.Timer timer_update_database;
     private System.Windows.Forms.Panel panel5;
     private System.Windows.Forms.TextBox textBox_broker;
-    private System.Windows.Forms.Button button1;
+    private System.Windows.Forms.Button button_connect_broker;
     private System.Windows.Forms.Label label10;
     private System.Windows.Forms.Label label12;
     private System.Windows.Forms.TextBox textBox_port_broker;

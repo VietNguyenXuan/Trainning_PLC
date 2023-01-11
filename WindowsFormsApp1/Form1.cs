@@ -34,7 +34,6 @@ namespace WindowsFormsApp1
     private MqttClientOptions clientOptions;
     public delegate void _ShowMessageRT(string msg, string s);
 
-
     public Form1()
     {
       InitializeComponent();
@@ -69,29 +68,16 @@ namespace WindowsFormsApp1
     string[] id_register = {"D3000", "D3001", "D3002", "D3003", "D3004", "D3005", "D3006", "D3007", "D3008", "D3009" };
     int[] value_register = new int[10];
 
-    private async void button_write_Click_1(object sender, EventArgs e)
-    {
-      int data;
-
-      data = int.Parse(textBox_value_write.Text);
-
-      value_register[comboBox_write.SelectedIndex] = data;
-
-      await mcProtocolTcp.WriteDeviceBlock("D3000", 10, value_register);
-      MessageBox.Show("Complete");
-    }
-
     private void comboBox_read_SelectedIndexChanged(object sender, EventArgs e)
     {
       textBox_value_read.Text = value_register[comboBox_read.SelectedIndex].ToString();
     }
 
-    // status connect
+    // status connect PLC
     private void timer1_Tick(object sender, EventArgs e)
     {
       button_status.Visible = !button_status.Visible;
     }
-
 
     private void timer_update_database_Tick(object sender, EventArgs e)
     {
@@ -104,6 +90,7 @@ namespace WindowsFormsApp1
       randomdata(); 
     }
 
+    // Random data làm mẫu
     public async void randomdata()
     {
       Random rd = new Random();
@@ -113,9 +100,7 @@ namespace WindowsFormsApp1
         value_register[i] = rd.Next(1, 1000);
         s += value_register[i].ToString() + "-";
       }
-
       textBox_test.Text = s;
-
 
       for (int i = 0; i < 10; i++)
       {
@@ -135,8 +120,6 @@ namespace WindowsFormsApp1
         }
       }
     }
-
-
 
     // MQTT
     private async void button1_Click(object sender, EventArgs e)
@@ -192,7 +175,7 @@ namespace WindowsFormsApp1
     // Connecting
     private async Task Client_ConnectingAsync(MqttClientConnectingEventArgs arg)
     {
-      label_status_mqtt.Text = "Reconnecting";
+      label_status_mqtt.Text = "Reconnecting ...";
       await Task.CompletedTask;
     }
 
@@ -203,7 +186,7 @@ namespace WindowsFormsApp1
 
       this.Invoke((MethodInvoker)delegate
       {
-        button_connect.Enabled = false;
+        button_connect_broker.Enabled = false;
         textBox_broker.Enabled = false;
 
         //textBox_publish.Enabled = true;
@@ -244,12 +227,6 @@ namespace WindowsFormsApp1
           MessageBox.Show(ex.Message);
         }
       }
-    }
-
-    private void label11_Click(object sender, EventArgs e)
-    {
-      dataGridView1.Rows.Clear();
-      randomdata();
     }
   }
 }
