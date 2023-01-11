@@ -138,10 +138,8 @@ namespace WindowsFormsApp1
     {
       timer1.Start();
       timer_update_database.Start();
-      int i = 10;
     }
     
-
     public void randomdata()
     {
       Random rd = new Random();
