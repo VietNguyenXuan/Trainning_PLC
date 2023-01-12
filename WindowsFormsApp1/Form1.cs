@@ -81,26 +81,16 @@ namespace WindowsFormsApp1
 
     private void timer_update_database_Tick(object sender, EventArgs e)
     {
-      dataGridView1.Rows.Clear();
-
-      //Khi kết nối PLC
-      //Read_WriteDataDB(); 
-
       //Khi không kết nối PLC
-      randomdata(); 
+      updateData();
+      randomdata();
+      
     }
 
     // Random data làm mẫu
     public async void randomdata()
     {
       Random rd = new Random();
-      string s = "";
-      for (int i = 0; i < 10; i++)
-      {
-        value_register[i] = rd.Next(1, 1000);
-        s += value_register[i].ToString() + "-";
-      }
-      textBox_test.Text = s;
 
       for (int i = 0; i < 10; i++)
       {
@@ -166,7 +156,7 @@ namespace WindowsFormsApp1
       label_status_mqtt.Text = "Disconnected";
 
       await Task.Delay(TimeSpan.FromSeconds(3));
-      await client.ConnectAsync(clientOptions, CancellationToken.None); // Since 3.0.5 with CancellationToken
+      await client.ConnectAsync(clientOptions, CancellationToken.None); 
       label_status_mqtt.Text = "Reconnecting";
 
       await Task.CompletedTask;
@@ -188,9 +178,6 @@ namespace WindowsFormsApp1
       {
         button_connect_broker.Enabled = false;
         textBox_broker.Enabled = false;
-
-        //textBox_publish.Enabled = true;
-        //textBox_publish.ReadOnly = false;
       });
 
       await Task.CompletedTask;
@@ -205,9 +192,50 @@ namespace WindowsFormsApp1
         Invoke(new _ShowMessageRT(ShowMessageRT), new Object[] { msg, s });
         return;
       }
-      dataGridView1.Rows.Add(s, msg);
+      //dataGridView1.Rows.Add(s, msg);
+      switch (s)
+      {
+        case "D3000":
+          value_read_broker[0] = msg;
+          break;
+        case "D3001":
+          value_read_broker[1] = msg;
+          break;
+        case "D3002":
+          value_read_broker[2] = msg;
+          break;
+        case "D3003":
+          value_read_broker[3] = msg;
+          break;
+        case "D3004":
+          value_read_broker[4] = msg;
+          break;
+        case "D3005":
+          value_read_broker[5] = msg;
+          break;
+        case "D3006":
+          value_read_broker[6] = msg;
+          break;
+        case "D3007":
+          value_read_broker[7] = msg;
+          break;
+        case "D3008":
+          value_read_broker[8] = msg;
+          break;
+        case "D3009":
+          value_read_broker[9] = msg;
+          break;
+      }
     }
 
+    public void updateData()
+    {
+      dataGridView1.Rows.Clear();
+      for (int i = 0; i < 10; i++)
+      {
+        dataGridView1.Rows.Add(id_register[i], value_read_broker[i]);
+      }
+    }
 
     public async void subcribe()
     {

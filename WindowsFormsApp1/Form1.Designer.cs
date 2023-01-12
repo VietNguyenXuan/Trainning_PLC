@@ -54,6 +54,8 @@ namespace WindowsFormsApp1
       this.label1 = new System.Windows.Forms.Label();
       this.textBox_port = new System.Windows.Forms.TextBox();
       this.dataGridView1 = new System.Windows.Forms.DataGridView();
+      this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.panel4 = new System.Windows.Forms.Panel();
       this.button_status = new System.Windows.Forms.Button();
       this.label9 = new System.Windows.Forms.Label();
@@ -67,10 +69,7 @@ namespace WindowsFormsApp1
       this.textBox_port_broker = new System.Windows.Forms.TextBox();
       this.panel6 = new System.Windows.Forms.Panel();
       this.label_status_mqtt = new System.Windows.Forms.Label();
-      this.textBox_test = new System.Windows.Forms.TextBox();
-      this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.label13 = new System.Windows.Forms.Label();
+      this.label11 = new System.Windows.Forms.Label();
       this.panel3.SuspendLayout();
       this.panel2.SuspendLayout();
       this.panel1.SuspendLayout();
@@ -356,13 +355,25 @@ namespace WindowsFormsApp1
       this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.address,
             this.value});
-      this.dataGridView1.Location = new System.Drawing.Point(405, 336);
+      this.dataGridView1.Location = new System.Drawing.Point(406, 338);
       this.dataGridView1.Name = "dataGridView1";
       this.dataGridView1.RowHeadersWidth = 70;
       this.dataGridView1.RowTemplate.Height = 24;
       this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-      this.dataGridView1.Size = new System.Drawing.Size(671, 356);
+      this.dataGridView1.Size = new System.Drawing.Size(671, 355);
       this.dataGridView1.TabIndex = 20;
+      // 
+      // address
+      // 
+      this.address.HeaderText = "Address";
+      this.address.MinimumWidth = 6;
+      this.address.Name = "address";
+      // 
+      // value
+      // 
+      this.value.HeaderText = "value";
+      this.value.MinimumWidth = 6;
+      this.value.Name = "value";
       // 
       // panel4
       // 
@@ -490,44 +501,22 @@ namespace WindowsFormsApp1
       this.label_status_mqtt.TabIndex = 12;
       this.label_status_mqtt.Text = "Status";
       // 
-      // textBox_test
+      // label11
       // 
-      this.textBox_test.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBox_test.Location = new System.Drawing.Point(576, 282);
-      this.textBox_test.Name = "textBox_test";
-      this.textBox_test.Size = new System.Drawing.Size(500, 34);
-      this.textBox_test.TabIndex = 13;
-      this.textBox_test.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-      // 
-      // address
-      // 
-      this.address.HeaderText = "Address";
-      this.address.MinimumWidth = 6;
-      this.address.Name = "address";
-      // 
-      // value
-      // 
-      this.value.HeaderText = "value";
-      this.value.MinimumWidth = 6;
-      this.value.Name = "value";
-      // 
-      // label13
-      // 
-      this.label13.AutoSize = true;
-      this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label13.Location = new System.Drawing.Point(400, 282);
-      this.label13.Name = "label13";
-      this.label13.Size = new System.Drawing.Size(170, 29);
-      this.label13.TabIndex = 24;
-      this.label13.Text = "Data Random";
+      this.label11.AutoSize = true;
+      this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.label11.Location = new System.Drawing.Point(625, 282);
+      this.label11.Name = "label11";
+      this.label11.Size = new System.Drawing.Size(220, 29);
+      this.label11.TabIndex = 16;
+      this.label11.Text = "Data Read Broker";
       // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(1100, 711);
-      this.Controls.Add(this.label13);
-      this.Controls.Add(this.textBox_test);
+      this.Controls.Add(this.label11);
       this.Controls.Add(this.panel6);
       this.Controls.Add(this.panel5);
       this.Controls.Add(this.panel4);
@@ -597,10 +586,9 @@ namespace WindowsFormsApp1
     private System.Windows.Forms.TextBox textBox_port_broker;
     private System.Windows.Forms.Panel panel6;
     private System.Windows.Forms.Label label_status_mqtt;
-    private System.Windows.Forms.TextBox textBox_test;
     private System.Windows.Forms.DataGridViewTextBoxColumn address;
     private System.Windows.Forms.DataGridViewTextBoxColumn value;
-    private System.Windows.Forms.Label label13;
+    private System.Windows.Forms.Label label11;
   }
 }
 
