@@ -164,15 +164,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gateway\RegisterGateway.cs" />
-    <Compile Include="Manager\RegisterManager.cs" />
-    <Compile Include="Migrations\20230108154204_inital.cs" />
-    <Compile Include="Migrations\20230108154204_inital.designer.cs">
-      <DependentUpon>20230108154204_inital.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\ApplicationDbContextModelSnapshot.cs" />
-    <Compile Include="Models\ApplicationDbContext.cs" />
-    <Compile Include="Models\Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -201,12 +192,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\McProtocol\McProtocol.csproj">
-      <Project>{a9a60439-b6ac-490e-97ac-ba2755a3222c}</Project>
-      <Name>McProtocol</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
