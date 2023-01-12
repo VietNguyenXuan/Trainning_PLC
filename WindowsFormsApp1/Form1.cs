@@ -1,5 +1,5 @@
-﻿using McProtocol;
-using McProtocol.Mitsubishi;
+﻿//using McProtocol;
+//using McProtocol.Mitsubishi;
 using MetroFramework.Controls;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Win32;
@@ -39,10 +39,11 @@ namespace WindowsFormsApp1
       textBox_ip1.Focus();
     }
 
-    McProtocolTcp mcProtocolTcp;
+    //McProtocolTcp mcProtocolTcp;
 
     private async void button_connect_Click_1(object sender, EventArgs e)
     {
+      /*
       int port = Convert.ToInt32(textBox_port.Text);
       string iP = textBox_ip1.Text + "." + textBox_ip2.Text + "." + textBox_ip3.Text + "." + textBox_ip4.Text;
 
@@ -60,6 +61,7 @@ namespace WindowsFormsApp1
         MessageBox.Show("Connect failed");
         this.Close();
       }
+      */
     }
 
     string[] id_register = {"D3000", "D3001", "D3002", "D3003", "D3004", "D3005", "D3006", "D3007", "D3008", "D3009" };
