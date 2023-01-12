@@ -18,9 +18,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
-using WindowsFormsApp1.Gateway;
-using WindowsFormsApp1.Manager;
-using WindowsFormsApp1.Models;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -67,10 +64,11 @@ namespace WindowsFormsApp1
 
     string[] id_register = {"D3000", "D3001", "D3002", "D3003", "D3004", "D3005", "D3006", "D3007", "D3008", "D3009" };
     int[] value_register = new int[10];
+    string[] value_read_broker = new string[10];
 
     private void comboBox_read_SelectedIndexChanged(object sender, EventArgs e)
     {
-      textBox_value_read.Text = value_register[comboBox_read.SelectedIndex].ToString();
+      textBox_value_read.Text = value_read_broker[comboBox_read.SelectedIndex].ToString();
     }
 
     // status connect PLC
@@ -82,9 +80,8 @@ namespace WindowsFormsApp1
     private void timer_update_database_Tick(object sender, EventArgs e)
     {
       //Khi không kết nối PLC
-      updateData();
       randomdata();
-      
+      updateData();
     }
 
     // Random data làm mẫu
@@ -94,6 +91,7 @@ namespace WindowsFormsApp1
 
       for (int i = 0; i < 10; i++)
       {
+        value_register[i]=rd.Next(1,1000);
         try
         {
           var message = new MqttApplicationMessageBuilder()
@@ -134,7 +132,9 @@ namespace WindowsFormsApp1
       await client.ConnectAsync(clientOptions, CancellationToken.None);
 
       timer_update_database.Start();
+      timer1.Start();
       subcribe();
+      updateData();  
     }
     private Task Client_ApplicationMessageReceivedAsync(MqttApplicationMessageReceivedEventArgs arg)
     {
@@ -183,7 +183,6 @@ namespace WindowsFormsApp1
       await Task.CompletedTask;
     }
 
-    string[] value_read_broker = new string[10];
 
     public void ShowMessageRT(String msg, String s)
     {
@@ -192,7 +191,7 @@ namespace WindowsFormsApp1
         Invoke(new _ShowMessageRT(ShowMessageRT), new Object[] { msg, s });
         return;
       }
-      //dataGridView1.Rows.Add(s, msg);
+
       switch (s)
       {
         case "D3000":
@@ -227,7 +226,6 @@ namespace WindowsFormsApp1
           break;
       }
     }
-
     public void updateData()
     {
       dataGridView1.Rows.Clear();
