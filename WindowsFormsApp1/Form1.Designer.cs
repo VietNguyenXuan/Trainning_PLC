@@ -264,7 +264,6 @@ namespace WindowsFormsApp1
       this.button_connect.TabIndex = 11;
       this.button_connect.Text = "Connect";
       this.button_connect.UseVisualStyleBackColor = false;
-      this.button_connect.Click += new System.EventHandler(this.button_connect_Click_1);
       // 
       // label2
       // 
